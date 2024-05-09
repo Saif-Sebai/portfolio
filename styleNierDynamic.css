@@ -1,0 +1,273 @@
+body {
+    min-height: 0;
+    height: calc(80vh - 60px);
+    font-family: 'Times New Roman', Times, serif;
+    color: #ddd9c9;
+    background-color: #000000;
+    position: relative;
+    background-image: url(https://assets.codepen.io/3735/nier-bg.svg), linear-gradient(rgba(72, 70, 61, 0.025) 2px, transparent 2px), linear-gradient(90deg, rgba(72, 70, 61, 0.025) 2px, transparent 2px);
+    background-size: 125%, 125%, 6px 6px, 6px 6px;
+    background-position: center center;
+    background-repeat: no-repeat, repeat, repeat;
+    margin: 30px 0;
+    padding: 60px 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+/* Update styles for smaller screens */
+@media screen and (max-width: 1200px) {
+    .container {
+        justify-content: center; /* Center items */
+    }
+}
+
+/* Update styles for even smaller screens */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+    }
+}
+
+.button-layout {
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 0;
+}
+
+.button-column {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 32px 64px;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 64px;
+    text-shadow: 6px 6px 0px rgba(190, 185, 163, 0.224);
+}
+
+h2 span {
+    opacity: 0;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 42px;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(90deg, transparent 12px, rgba(72, 70, 61, 0.25) 12px, transparent 16px), linear-gradient(90deg, rgba(72, 70, 61, 0.25) 6px, transparent 0px);
+}
+
+.button-group .button {
+    margin-bottom: 18px;
+    transform: translateX(-35px);
+    opacity: 0;
+}
+
+.button-group .button:last-child {
+    margin-bottom: 0;
+}
+
+.button {
+    position: relative;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    background: linear-gradient(90deg, rgba(72, 70, 61, 0.25) 0%, rgba(72, 70, 61, 0.25) 50%, #48463d 50%, #48463d 100%);
+    background-size: 200%;
+    color: #dcdad0;
+    border: none;
+    border-top: transparent 3px solid;
+    border-bottom: transparent 3px solid;
+    padding: 8px 20px 7px;
+    line-height: 1;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.4s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.button-label {
+    display: inline-block;
+}
+
+.button-label:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background: #ffffff;
+    margin-right: 6px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -42px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 40px;
+    height: 20px;
+    background: url("https://assets.codepen.io/3735/nier-pointer.svg") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.button:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    border-top: transparent 2px solid;
+    border-bottom: transparent 2px solid;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+    background-position: -100% 100%;
+    border-color: #c2bda6;
+    color: #c2bda6;
+    box-shadow: 4px 4px 6px 2px rgba(72, 70, 61, 0.745);
+    outline: 0;
+}
+
+.button:hover .button-label:before,
+.button:active .button-label:before,
+.button:focus .button-label:before {
+    background: #c2bda6;
+}
+
+.button:hover:before,
+.button:active:before,
+.button:focus:before {
+    opacity: 1;
+}
+
+.button:hover:after,
+.button:active:after,
+.button:focus:after {
+    border-top-color: #cbc4a5;
+    border-bottom-color: #bcb79d;
+}
+
+.copy-box {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%; /* Adjust width for responsiveness */
+    max-width: 800px; /* Limit width for larger screens */
+    background-color: #1b1b1b;
+    color: #cbcbcb;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.copy-box .line {
+    position: absolute;
+    background-color: rgb(45, 71, 71);
+    box-shadow: 0px 0px 12px rgb(98, 102, 102);
+    width: 4px;
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.copy-box.two .line {
+    border-radius: 0;
+    width: 2px;
+}
+
+.copy-box .line .scanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(80, 80, 80);
+    width: 100%;
+    height: 20px;
+    border-radius: 50%;
+    animation: scanner-loop 3s ease-in-out infinite;
+}
+
+.copy-box.two .line .scanner {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    height: 50%;
+}
+
+@keyframes scanner-loop {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.copy-box .inner {
+    padding: 30px;
+}
+
+.scrollbox {
+    overflow: auto;
+    width: 100%; /* Adjust width for responsiveness */
+    max-width: 900px; /* Limit width for larger screens */
+    max-height: 200px;
+    --g: radial-gradient(55% 20px, #0009, #0000);
+    background: linear-gradient(#000000 10px, #0000 40px calc(100% - 40px), #000000 calc(100% - 10px)) local, var(--g) top / 100% 200%, var(--g) bottom / 100% 200%;
+}
+
+.scrollbar {
+    margin-left: 30px;
+    float: left;
+    height: 500px;
+    width: 100%; /* Adjust width for responsiveness */
+    max-width: 850px; /* Limit width for larger screens */
+    background: #000000;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+
+.force-overflow {
+    min-height: 450px;
+}
+
+#wrapper {
+    text-align: center;
+    width: 100%; /* Adjust width for responsiveness */
+    max-width: 500px; /* Limit width for larger screens */
+    margin: auto;
+}
+
+/* Style for scrollbar */
+#style-4::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #100f0f;
+}
+
+#style-4::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+}
+
+#style-4::-webkit-scrollbar-thumb {
+    background-color: #9f9a9a;
+    border: 2px solid #555555;
+}
