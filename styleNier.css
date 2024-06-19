@@ -1,11 +1,18 @@
+:root{
+  /* --backgroundColor :#00000059 ; */
+  --backgroundColor :#beb181ca ;
+}
+
+
 body {
     min-height: 0;
     height: calc(80vh - 60px);
     font-family:'Times New Roman', Times, serif;
     color: #ddd9c9;
-    background-color: #000000;
+    /* background-color: var(--backgroundColor);  */
+    transition: background-color ease;
     position: relative;
-    background-image: url(https://assets.codepen.io/3735/nier-bg.svg), linear-gradient(rgba(72, 70, 61, 0.025) 2px, transparent 2px), linear-gradient(90deg, rgba(72, 70, 61, 0.025) 2px, transparent 2px);
+    background-image: url(https://assets.codepen.io/3735/nier-bg.svg), linear-gradient(rgba(72, 70, 61, 0.855) 2px, transparent 2px), linear-gradient(90deg, rgba(72, 70, 61, 0.025) 2px, transparent 2px);
     background-size: 125%, 125%, 6px 6px, 6px 6px;
     background-position: center center;
     background-repeat: no-repeat, repeat, repeat;
@@ -18,8 +25,21 @@ body {
     display: flex;
 }
 
+  .hiddenFromDesktop {
+    display: none;
+    /* width: 200px; */
+  }
 
+  .displayBLOCK {
+    display: block;
+  }
+  
 
+  /* .buttons {
+    @media (pointer:none), (pointer:coarse)  {
+      width: 200px;
+    }
+  } */
   body:before, body:after {
     content: '';
     display: block;
@@ -75,9 +95,13 @@ body {
     position: relative;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
-    background: linear-gradient(90deg, rgba(72, 70, 61, 0.25) 0%, rgba(72, 70, 61, 0.25) 50%, #48463d 50%, #48463d 100%);
+    /* DARK */
+    /* background: linear-gradient(90deg, rgba(72, 70, 61, 0.25) 0%, rgba(72, 70, 61, 0.25) 50%, #48463d 50%, #48463d 100%); */
+    /* LIGHT */
+    background: linear-gradient(90deg, rgba(72, 70, 61, 0.468) 0%, rgba(72, 70, 61, 0.444) 50%, #48463d 50%, #48463d 100%);
     background-size: 200%;
     color: #dcdad0;
+    /* color: #737345; */
     border: none;
     border-top: transparent 3px solid;
     border-bottom: transparent 3px solid;
@@ -156,6 +180,7 @@ body {
   margin: 0 auto;
   width: calc(71vw - 100px);
   background-color: #1b1b1b;
+  /* background-color: var(--backgroundColor); */
   color: #cbcbcb;
   font-family: sans-serif;
   padding: 20px;
@@ -244,7 +269,9 @@ body {
       float: left;
       height: 70vh;
       width: calc(75vw - 100px);
-      background: #000000;
+      /* background: #000000; */
+      background: #00000000;
+      /* background: var(--backgroundColor); */
       overflow-y: scroll;
       margin-bottom: 25px;
   }
@@ -303,4 +330,93 @@ body {
 a {
     color: rgba(213, 208, 124, 0.834);
     text-decoration: none;
+}
+
+
+
+
+
+/* overlay stuff */
+
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+}
+
+changedColor {
+  color:#cbc4a5;
+}
+
+.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
+/* CHANGES FOR MOBILE */
+@media (pointer:none), (pointer:coarse)  {
+  /* HERE ADD STYLE FOR MOBILE PHONES */
+  
+  /* .buttons {
+    width: 200px;
+    
+  } */
+  .hiddenFromDesktop {
+    display: block;
+    /* width: 200px; */
+  }
+  .scrollbar {
+    margin-left: 20px;
+    float: left;
+    height: 70vh;
+    width: calc(1000vw);
+    /* background: #000000; */
+    background: #00000000;
+    /* background: var(--backgroundColor); */
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+  .image {
+    max-width: 360px;
+    width: 100%;
+  }
+
+
+  .copy-box 
+  {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    width: calc(80vw);
+    background-color: #1b1b1b;
+    /* background-color: var(--backgroundColor); */
+    color: #cbcbcb;
+    font-family: sans-serif;
+    padding: 20px;
+  }
+
+}
+/* END OF MOBILE PART */
+
+
+
+.image {
+  width: 400px;
+}
+.hidden {
+  display: none;
 }
