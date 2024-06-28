@@ -96,12 +96,13 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 console.log("Device is using a light theme.");
 // document.body.style.backgroundColor = "white";
 // document.getElementById("name").textContent = "GG"; 
-document.getElementsByClassName("changed").style.color = "black";
+// document.getElementsByClassName("changed").style.color = "black";
 }
 
 
 // Use the result as needed
 if (isMobile) {
+  console.log("mobile")
 
   toggleTheme()
   // Check if the device prefers light color scheme
@@ -117,13 +118,13 @@ if (isMobile) {
 
   // Check if the screen resolution is 1920x1080
   if (screenWidth === 1920 && screenHeight === 1080) {
-      document.body.style.zoom = "110%";
-      // console.log("Screen resolution is 1920x1080");
+      document.body.style.zoom = "125%";
+      console.log("Screen resolution is 1920x1080");
   } else {
-      // console.log("Screen resolution is not 1920x1080");
+      console.log("Screen resolution is not 1920x1080");
   }
   
-    // console.log("The user is not using a mobile device.");
+    console.log("The user is not using a mobile device.");
 }
 
 
@@ -136,12 +137,14 @@ function toggleTheme() {
 
 
 function smartToggle() {
+  // MOBILE VERSION
 if (isMobile) {
   var buttonsDiv = document.getElementById("buttons");
   buttonsDiv.classList.toggle("hidden")
   $('#target1').toggle(400);
     // console.log("The user is using a mobile device.");
 } else {
+  // PC VERSION
   $('#target1').toggle(400);
   
     // console.log("The user is not using a mobile device.");

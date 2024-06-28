@@ -420,3 +420,9 @@ changedColor {
 .hidden {
   display: none;
 }
+
+
+.righty {
+  position: absolute;
+  left: 95%;
+}
